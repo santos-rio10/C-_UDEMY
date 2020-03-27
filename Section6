@@ -1,0 +1,168 @@
+Section 6
+==========
+
+ **Since a computer uses different methods for processing and saving data, the data type must be known.
+ 
+ so The type defines
+1. the internal representation of the data (method of process)
+2. the amount of memory to allocate.(Size)
+
+the size of each data type is compiler-dependent and depends on the platform that you are using
+
+so that means that c++ programmer he needs to be aware of his spacific machine and understand how much storage is allocated for these types to affectively use them
+
+#include <climits>
+contain the size and precision of the data types for your specific compiler
+
+8 bit  -->     256 Values      ---->2e8
+16 bit -->                     ---->2e16
+32 bit -->                     ---->2e32
+64 bit -->                     ---->2e64
+الفكره هنا انك بتطلع احتمالات رقم 8 بناءا علي البيز اللي هو 2 يعني من الاخر اكنك بتقزل انا عندي رقمين هما 1 و 0 في ظل وجود 8 بيز اقدر اطلع منهم كام قيمه ف هنا هتقوم عامل 2 اس 8 هيديلك 256 زي ما هو واضح كدا
+----------------------------------------------------------------------------------------------
+==============================
+*****PRIMITIVE TYPE*****
+==============================
+Character types
+================
+- used only to represent a single character
+- wider types are used to represent sider character set
+
+char --> its size 8 bit means that its size can contain only 1 character out of any 256 character 
+ex : char mohamed{'J'}; so a size of 8 bits will be allocated for this variable , recall that variables is a empty boxes to store the data
+
+-  char               at least 8 bit
+-  char16_t           at leasr 16 bit
+-  char32_t           at least 32 bit
+-  wchar_t            can represent the largest available character set
+
+----------------------------------------------------------------------------------------------
+Integer Data Type
+==================
+-used to represent whole numbers
+-signed and unsigned (unsigned means non-negative numbers)
+
+signed short int                 at least 16 bits
+signed int                       at least 16 bits
+signed long int                  at least 32 bits         
+signed long long int             at least 64 bits
+
+
+Unsigned short int               at least 16 bits
+Unsigned int                     at least 16 bits
+Unsigned long int                at least 32 bits         
+Unsigned long long int           at least 64 bits
+
+so which one should i use ?
+the answer is that's depends on which things you are working on
+like if you worl on a program to produce kilometers between earth and planets so you will use unsigned long long int.
+
+----------------------------------------------------------------------------------------------
+
+Floating-Point Type
+====================
+-sizes are compiler-dependent
+- computer store the floating number internally as a scientific notations and so on , you don't need to worry about it
+
+float                 7 decimal digits
+
+double               15 decimal digits
+
+long doube           19 decimal digits
+
+
+----------------------------------------------------------------------------------------------
+Boolean Type
+=============
+bool     only 8 digits which states 0 means false and 1 means true 
+
+----------------------------------------------------------------------------------------------
+how to getting to know the size of variables and data types in your compiler
+============================================================================
+
+. the sizeof operator 
+        .  determine the siza in bytes for a type or a variable
+        
+     Example :
+                sizeof(int)
+                sizeof(double)
+                sizeof(some_variable)
+                sizeof some_variable
+                
+  
+  <climits> and <cfloat> : are include files contain the size and precision
+      |             |
+      |             |
+   Integer        Floating              EX:     
+                                                sizeof(int) ---> size in bytes
+                                                INT_MAX
+                                                INT_MIN
+                                                LONG_MIN
+                                                LONG_MAX
+                                                FLT_MIN   ---> Minimum Values
+                                                FLT_MAX   ---> Maximum value
+   
+   ----------------------------------------------------------------------------------------------
+  what is a constant and Literals
+  ================================
+   - like c++ variable in everything
+   - usually typed means you don't need to declare its type
+   - however their value cannot change once declared
+   ex; const int room_price{200};
+   cout << "room price"<<endl;  
+   cin<<room_price;
+reassigning كان هيتعمله variable هنا هيقوم مديلك خطأ .. علفكره نفس الحركه دي لو اتعملت علي 
+لنفس المتغير النتيجه انه هيطلعلك اخر قيمه اتحطت cout و بعد كدا حاولت تعمل variable  لل reassigning خد بالك انك لو عمل
+طب خد بالك معايا تحت ركز
+
+int mido{120};
+
+const let_try{mido};
+
+cout <<"please print mido"<<mido;   
+تمام كدا ؟
+cin>> mido;    مثلا اليوزر حط 200
+cout<<mido<<endl;   هيطلعلك زي ما اتفقنا ال200
+
+cout << let_try<<endl;   وقتها بقا هيطلعلك القيمه الاولانيه 120
+====================================================================================================================
+
+                                                                                                        #end
+
+
+
+
+
+  
+  
+   
+   
+   
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
