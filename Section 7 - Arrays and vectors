@@ -1,1 +1,98 @@
+Array declaring and initializing
+======================================
+
+syntax for array declaration
+----------------------------------
+Element_type array_name [Constant number or elements];
+
+EX:   . int test_score [5];      -----> remember this array size is fixed
+
+
+Best Practice
+--------------
+* to declare and intialize the array same time , declare [] and initialize {}
+how>>
+
+int test_score [3]{5,7,6};
+
+why should i do that best practice ?
+bec if you do ex:   
+
+int test_score [5];       // here declare without intializing 
+cout << int test_score [1];     // it will resault a garbage memory
+
+====================================
+array size automatically calculated
+====================================
+
+int test_score []{5,7,6};
+
+Here we let the compiler to calculate that array size based on the initializer elements
+
+=========================================
+Accessing and Modyfing array elements
+=========================================
+
+1- Accessing
+=============
+syntax:
+
+test_score[1];
+
+***you don't need to mention the type of the array***
+
+Changing the elements of array elements , -->  array_name [element_index];
+=========================================
+
+test_score[2] = 90;
+   or
+ let the user to change it EX:
+  
+  cin >> test_score[2];
+  
+=======================================================================================================
+Rememer - No Bounds Checking
+=======================================================================================================
+Vector Declaring
+=================
+#include <vector>
+using namespace std;
+
+vector <char> vowels;
+vector <int> test_course;
+==================================
+in that case vowels and test_course are empty vectore , lets see another ways to declare vectors
+
+
+vector <char> vowels (5);         here im telling compiler that this vector is 5 characters and i don't need to intialize it to zero as it will be there automatically,unlike arrays that will produce data garbage
+vector <int> test_course (10);
+
+you also can do the follow
+
+vector <char> vowels ('t','a','s','d','g');      without saying the size 
+
+there are many other ways to declare a vectore , you can declare a vector to be a copy of an array or a copy of another fector
+***please review video#58 at last markplace
+
+
+
+
+   
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======================================================================================================
+
 
