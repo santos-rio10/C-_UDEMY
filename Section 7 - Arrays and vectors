@@ -55,12 +55,35 @@ Rememer - No Bounds Checking
 =======================================================================================================
 Vector Declaring
 =================
+suppose we want to store test scores for my school
+and i have no way of knowing how many student will register next year 
+
+options
+========
+1- use a size that you are not likely to exceed and use static arrays
+or
+2-use a dynamic array such vector
+
+what is vector ?
+=========================
+. container in c++ template library
+. an array that can grow and shrink in size at execution time
+. provide similar semantics and syntax as arrays
+. very efficient
+. can provide bounds checking by using method like at
+. can use alot of cool functions like :sort , reverse , siza , more .
+
+Vector Declaring
+===================
+
 #include <vector>
 using namespace std;
 
 vector <char> vowels;
 vector <int> test_course;
 ==================================
+
+Vector Initializing
 in that case vowels and test_course are empty vectore , lets see another ways to declare vectors
 
 
@@ -73,6 +96,53 @@ vector <char> vowels ('t','a','s','d','g');      without saying the size
 
 there are many other ways to declare a vectore , you can declare a vector to be a copy of an array or a copy of another fector
 ***please review video#58 at last markplace
+
+Accessing vector elements - array syntax
+==========================================
+when we create a vector we are creating an object in object oriented jarogn then we can ask objects to perform operations and these operations are called methods
+vector_name [element_index];      EX:     test_scores[1];
+
+Accessing vector elements - at method
+==========================================
+vector_name.at(element_index);
+EX:   test_scores.at(1);
+
+.  is called dot operator
+at --> its the operation/method
+
+**we can also use the same syntax when we want to modify vector elements
+
+
+change its siza automatically(how)
+====================================
+in vector there is method which is called .push_back which add one element to last of the vector
+
+syntax:
+vector_name.push_back(element);
+
+vector <int> test_scores {95,70,78};    //here the siza is 3
+
+test_scores (84);      // now its going to be {95,70,78,84}
+test_scores (90);      // now its going to be {95,70,78,84,90}
+
+==================================================================================================================================
+what happen if you go out of bounds ?
+======================================
+vector <int> test_scores{50,40,30};
+
+
+cin >> test_scores.at[5];
+
+اللي كان بيحصل ان البرنامج بيقفل و بس كدا الحلو هنا بقا ان في حاجه اسمها الجرجون هتبعتلك مسج طويله تفهمك فالنص من خلال كلمتين هتفهم الغلط فين و بس كدا Arrays في الg
+
+
+
+
+
+
+
+
+
 
 
 
