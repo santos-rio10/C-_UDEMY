@@ -1,0 +1,49 @@
+if statement the statement is the most basic of the C plus plus selection statements and his syntax couldn't be any simpler.
+syntax :    if (expr)       // the  expression must evaluate to boolean true or fasle value
+              statement;    // if the value of expression is true then the statement is executed otherwise the statement skipped
+              
+  ***   lets conceptually see what's going on in the if statement.     ****
+        ===========================================================
+        
+   *Block statement
+   ==================
+   it introdcue a new level or scope(detailed later)
+   as we declare a variable in main block , we can declare a variable at any block , but note that variable declared in a block will be only divisible in the same block
+   
+   
+   else
+   =====
+   if (expr)
+      statement1;
+   else if (expr)
+      statement3;   
+   else
+      statement2;
+ ===========================
+ Nested if statement
+ ===========================
+ if (expr)
+      if (expr)
+      statement1;
+  else                  //in C++ , else belongs to the closest if(dengling else problem)
+      statement2;
+      
+      NOTE : we have 2 ifs and 1 else , in computer science that called the dangling else problem and every programing language has to decide how to handle it
+   in C++ else is belongs to the closest if
+   
+   
+   
+   
+      
+      
+==============================
+
+ 
+ 
+   
+   
+   
+   
+   
+   
+              
