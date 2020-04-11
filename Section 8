@@ -1,39 +1,78 @@
-Logical operators
-===================
-not   !
-and   &&
-or    ||
+#include <iostream>
+#include <vector>
+#include <cctype>
+#include <cstring>
+#include <string>
 
-work on boolean expressions and evaluate them to boolean value
-==================================================================================
-not(!) is a unary operator means it work only with one operand
+using namespace std;
 
-and(&&) is binary operator and its only true when both operands are true .
+int main() {
 
-or(||) also is a binary operator and its true when on of both operand are true
-==================================================================================
-
-note that when you mix between logical operators and relational operator , you can fix alot of too complex program
-
-- not have the higher precedence 
-- and is  the 2nd
-- or is the third
-
-not is a unary operator
-and , or are binary operator
+int selection{0};
 
 
-short Circuit Evaluation
-============================
-c++ will stop evaluating the logical expression as soon as it know the result
+size_t number_of_branches{0};
+        
+string whitespace (" ", 2);
+        
+    do{
+ 
+    cout << "\n1. Enter sales data"<<endl;
+    cout<<"2. Add a record for a new branch"<<endl;
+    cout<<"3. Delete record of an existing branch"<<endl;
+    cout<<"4. Calculate total sales"<<endl;
+    cout<<"5. Calculate percentage share of each branch"<<endl;
+    cout<<"6. Determine the month of peak sales"<<endl;
+    cout<<"7. Display sales of a specific month"<<endl;
+    cout<<"8. Display sales of specific branch"<<endl;
+    cout<<"0. Done"<<endl;
+    cout <<"\nPlease what is your selection : ";
+         cin >> selection;
+         
+         if(selection == 1){       
+                cout << "enter number of branches : ";
+                cin >> number_of_branches;
+                vector <int> branches_data;
+                int input{};
+                cout <<endl<<endl;
+                
+    for(size_t a{1} ; a <= number_of_branches ; ++a )
+    {
+                cout <<"sales for branch "<< a<<" "<<endl;
+                        for(size_t x{0} ; x < 12 ; ++x)
+                        {
+                            cout<<"sales for month "<<x+1<<" :  ";
+                            cin >> input ;
+                            branches_data.push_back(input);
+                            cout<<endl;
+                        }
+              
+    }
+                  
+             cout<<"Branch\\Month: ";
+             for (size_t i{1} ; i < 13 ; ++i )
+             cout<<whitespace<<" "<< i;
+             
+             cout <<endl;
+             cout <<"Branch     1:  ";
+             for (auto vec: branches_data)
+                 cout<<whitespace<<vec;
+         }
+         
+         
+         
+         
+    
 
 
-compound assignment operator
-==============================
-the syntax is the operator you are welling to use followed by euqal sign : /= or += or -=
-there are a quite few of operators but we will focus with mathematical operators
 
-lhs += lrs : meaning of this , increment(if lhs = 10 then increment will start after 10 ) left hand side by the amount of the right hand side and then store it back into the left hand side
+   
+}while (selection != 0 );  
+    
+    
+    
 
-
+    return 0;
+}
+    
 
