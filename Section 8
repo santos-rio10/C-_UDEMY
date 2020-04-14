@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <cctype>
 #include <cstring>
 #include <string>
@@ -13,13 +12,12 @@ int selection{0};
 
 size_t number_of_branches{0};
         
-vector <int> branches_data;
-vector <int> new_branches_data;
 int input{};       
 string whitespace (" ", 2);
-        
+double intermedian[100][12];     
+   
     do{
-                
+                int new_branches_data[number_of_branches][12];
     cout << "\n1. Enter sales data"<<endl;
     cout<<"2. Add a record for a new branch"<<endl;
     cout<<"3. Delete record of an existing branch"<<endl;
@@ -37,6 +35,7 @@ string whitespace (" ", 2);
                 cin >> number_of_branches;
                
                 cout <<endl<<endl;
+                double branches_data[number_of_branches][12];
                 
     for(size_t a{1} ; a <= number_of_branches ; ++a )
     {
@@ -45,82 +44,85 @@ string whitespace (" ", 2);
                         {
                             cout<<"sales for month "<<x+1<<" :  ";
                             cin >> input ;
-                            branches_data.push_back(input);
-                            cout<<endl;
+                                for(int t{0} ; t <12 ; ++t)
+                                {
+                                    branches_data [a-1][t] = input;
+                                    intermedian [a-1][t]=input;
+                                }
                         }
+              
               
     }
                   
-             cout<<"Branch\\Month: ";
-             for (size_t i{1} ; i < 13 ; ++i )
-             cout<<whitespace<<" "<< i;
              
-             cout <<endl;
-             cout <<"Branch     1:  ";
-             for (auto vec: branches_data)
-                 cout<<whitespace<<vec;
+             for ( size_t q{} ; q < number_of_branches;++q)
+                 for ( size_t u{}; u <12 ; ++u)
+                     cout << branches_data[q][u];
+             
          }
          
     if(selection == 2)
     {
-        for ( size_t x{} ; x < 12 ; ++x)
+       ++number_of_branches;
+       
+        
+        for ( size_t x{1} ; x <= number_of_branches ; ++x)
             {
-                cout<<"sales for month "<<x+1<<" :  ";
-                cin >> input ;
-                branches_data.push_back(input);
-                cout<<endl;
-            }
+                if ( x < number_of_branches)
+                {
+                        for(int c{0} ; c <12 ; ++c)
+                        {
+                        new_branches_data[x-1][c] = intermedian[x-1][c];
+                        }
+                }
+                
+                else
+                {   
+                        for(int h{0} ; h <12 ; ++h)
+                        {
+                            cout<<"Please enter sales data";
+                            cin >> input ;
+                            new_branches_data[x-1][h] = input;
+                            cout<<endl;
+                            intermedian [x-1][h]=input;
+                        }
+                }
     
-                cout<<"Branch\\Month: ";
-                for (size_t z{1} ; z < 13 ; ++z )
-                cout<<whitespace<<" "<< z;
-             
-                cout <<endl;
-                cout <<"Branch     1:  ";
-                for (auto vec2: branches_data)
-                    cout<<whitespace<<vec2;
+            }                  
+            for ( size_t qq{} ; qq < number_of_branches;++qq)
+                for ( size_t uu{}; uu <12 ; ++uu)
+                     cout << new_branches_data[qq][uu];
         
     }
+    
     if(selection == 3)
     {
-        int deleted{};
-        int new_vector_size{};
+        size_t deleted{};
+        --number_of_branches;
+        double intermedian[number_of_branches][12];
         cout<<"Please type Branch number that you want to delete : ";
         cin >> deleted;
-        int starting_point_of_deleted_vector = {(deleted * 12)-12};      //zero
-        new_vector_size = branches_data.size() - 12 ;                           //24
+      
         
-        for (int v{} ; v < new_vector_size ; ++v)
+        for (size_t v{0} ; v < number_of_branches  ; ++v)
         {
-            if (v < starting_point_of_deleted_vector && v != starting_point_of_deleted_vector)
-                new_branches_data.push_back(branches_data.at(v));
-        
-            if (v == starting_point_of_deleted_vector)
-            {
-                    for (int y{},t{v} ; y < new_vector_size;++y,++t)
-                        new_branches_data.push_back(branches_data.at(t+12));  
-                
-                
-            }
-        
-        }
+            
+                if ( v != (deleted-1) )
+                {
+                    for (int k {} ; k < 12 ; ++k)
+                    {
+                        intermedian[v][k] = new_branches_data[v][k];
+                    }
+                }
+        }    
         
         
-        cout<<"Branch\\Month: ";
-                for (size_t z{1} ; z < 13 ; ++z )
-                cout<<whitespace<<" "<< z;
-                cout <<endl;
-                cout <<"Branch     1:  ";
-                for (auto vec2: new_branches_data)
-                    cout<<whitespace<<vec2;  
-    }    
-         
-    
-    
-    
+             for ( size_t p{} ; p < number_of_branches;++p)
+                 for ( size_t o{}; o <12 ; ++o)
+                     cout << intermedian[p][o]<<endl;    
 
 
-
+    }
    
 }while (selection != 0 );  
     
@@ -130,4 +132,3 @@ string whitespace (" ", 2);
     return 0;
 }
     
-
