@@ -98,31 +98,26 @@ double intermedian[100][12];
     if(selection == 3)
     {
         size_t deleted{};
-        --number_of_branches;
-        double intermedian[number_of_branches][12];
         cout<<"Please type Branch number that you want to delete : ";
         cin >> deleted;
-      
         
-        for (size_t v{0} ; v < number_of_branches  ; ++v)
-        {
-            
-                if ( v != (deleted-1) )
-                {
+       
+            for (size_t v{deleted} ; v < number_of_branches  ; ++v)
+            {
                     for (int k {} ; k < 12 ; ++k)
                     {
-                        intermedian[v][k] = new_branches_data[v][k];
+                        intermedian[v-1][k] = intermedian[v][k];
+                    
                     }
-                }
-        }    
-        
+            }    
+                --number_of_branches;
         
              for ( size_t p{} ; p < number_of_branches;++p)
                  for ( size_t o{}; o <12 ; ++o)
                      cout << intermedian[p][o]<<endl;    
-
-
     }
+    
+    
    
 }while (selection != 0 );  
     
@@ -131,4 +126,3 @@ double intermedian[100][12];
 
     return 0;
 }
-    
