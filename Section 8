@@ -5,19 +5,24 @@
 
 using namespace std;
 
+
+
 int main() {
 
 int selection{0};
 
-
+double total_company_sales{};
 size_t number_of_branches{0};
         
-int input{};       
+double input{};       
 string whitespace (" ", 2);
 double intermedian[100][12];     
+
+
    
     do{
                 int new_branches_data[number_of_branches][12];
+                double branches_revenues[number_of_branches]{};
     cout << "\n1. Enter sales data"<<endl;
     cout<<"2. Add a record for a new branch"<<endl;
     cout<<"3. Delete record of an existing branch"<<endl;
@@ -44,10 +49,12 @@ double intermedian[100][12];
                         {
                             cout<<"sales for month "<<x+1<<" :  ";
                             cin >> input ;
+                            total_company_sales += input;
                                 for(int t{0} ; t <12 ; ++t)
                                 {
                                     branches_data [a-1][t] = input;
                                     intermedian [a-1][t]=input;
+                                    
                                 }
                         }
               
@@ -117,11 +124,31 @@ double intermedian[100][12];
                      cout << intermedian[p][o]<<endl;    
     }
     
-    
+ if(selection == 4){
+        for (size_t zx{}; zx < number_of_branches; ++zx){
+            for (int kx {} ; kx < 12 ; ++kx){
+            total_company_sales += intermedian[zx][kx];
+            }
+        }cout <<"total sales for the company is : "<<total_company_sales <<" $ .";
+   
+ }  
+ if(selection == 5 ){
+     
+     
+     for (size_t zxx{}; zxx < number_of_branches; ++zxx){
+         double data_stream{0};
+         double sales_percentage{};
+         for (int kxx {} ; kxx < 12 ; ++kxx){
+         data_stream += intermedian[zxx][kxx];
+         }
+        branches_revenues[zxx] = data_stream;
+        sales_percentage = (data_stream / total_company_sales)*100;
+        cout <<"Sales Revenue for branch number "<<zxx+1<< " is : "<<sales_percentage <<" %"<<endl;
+     }
+ }
+ 
    
 }while (selection != 0 );  
-    
-    
     
 
     return 0;
